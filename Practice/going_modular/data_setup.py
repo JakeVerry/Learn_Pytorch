@@ -7,7 +7,7 @@ from torchvision.datasets import ImageFolder
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 
-NUM_WORKERS = os.cpu_count()
+NUM_WORKERS = 2
 
 def create_dataloaders(
     train_dir: str,
