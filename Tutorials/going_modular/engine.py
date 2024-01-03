@@ -125,13 +125,14 @@ def test_step(model: torch.nn.Module,
 
 from tqdm.auto import tqdm
 
-def train(model: torch.nn.Module, 
-          train_dataloader: torch.utils.data.DataLoader, 
-          test_dataloader: torch.utils.data.DataLoader, 
-          optimizer: torch.optim.Optimizer,
-          loss_fn: torch.nn.Module,
-          epochs: int,
-          device: torch.device) -> Dict[str, List[float]]:
+def train(
+    model: torch.nn.Module, 
+    train_dataloader: torch.utils.data.DataLoader, 
+    test_dataloader: torch.utils.data.DataLoader, 
+    optimizer: torch.optim.Optimizer,
+    loss_fn: torch.nn.Module,
+    epochs: int,
+    device: torch.device) -> Dict[str, List[float]]:
   """Trains and tests a PyTorch model.
 
   Passes a target PyTorch models through train_step() and test_step()
@@ -172,12 +173,14 @@ def train(model: torch.nn.Module,
   
   # Loop through training and testing steps for a number of epochs
   for epoch in tqdm(range(epochs)):
-      train_loss, train_acc = train_step(model=model,
-                                          dataloader=train_dataloader,
-                                          loss_fn=loss_fn,
-                                          optimizer=optimizer,
-                                          device=device)
-      test_loss, test_acc = test_step(model=model,
+      train_loss, train_acc = train_step(
+          model=model,
+          dataloader=train_dataloader,
+          loss_fn=loss_fn,
+          optimizer=optimizer,
+          device=device)
+      test_loss, test_acc = test_step(
+          model=model,
           dataloader=test_dataloader,
           loss_fn=loss_fn,
           device=device)
